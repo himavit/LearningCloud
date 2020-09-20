@@ -1,0 +1,24 @@
+pool:
+  name: Hosted VS2017
+  demands: azureps
+
+steps:
+- task: petergroenewegen.PeterGroenewegen-Xpirit-Vsts-Release-Terraform.Xpirit-Vsts-Release-Terraform.Terraform@2
+  displayName: 'Terraform init'
+  inputs:
+    TemplatePath: /
+    Arguments: init
+    InstallTerraform: true
+    Version : 0.11.12
+    UseAzureSub: true
+    ConnectedServiceNameARM: 'Free Trial'
+
+- task: petergroenewegen.PeterGroenewegen-Xpirit-Vsts-Release-Terraform.Xpirit-Vsts-Release-Terraform.Terraform@2
+  displayName: 'Terraform apply -var-file=dr.tfvars -auto-approve'
+  inputs:
+    TemplatePath: /
+    Arguments: 'apply -auto-approve'
+    InstallTerraform: true
+    Version : 0.11.12
+    UseAzureSub: true
+    ConnectedServiceNameARM: 'Free Trial'
