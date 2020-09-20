@@ -14,7 +14,7 @@ steps:
     ConnectedServiceNameARM: 'Free Trial'
 
 - task: petergroenewegen.PeterGroenewegen-Xpirit-Vsts-Release-Terraform.Xpirit-Vsts-Release-Terraform.Terraform@2
-  displayName: 'Terraform apply -var-file=dr.tfvars -auto-approve'
+  displayName: 'Terraform apply -auto-approve'
   inputs:
     TemplatePath: /
     Arguments: 'apply -auto-approve'
